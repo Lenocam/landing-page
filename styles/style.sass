@@ -15,6 +15,7 @@
   background-color: $yankees-blue
 body
   height: 100%
+  min-width: 320px
 // //Nav and Header
 #header
   position: fixed
@@ -30,20 +31,21 @@ body
     width: auto
     background: $copper-penny
   #header-img:hover
-
     overflow: hidden
     font-family: Arial
-    background-color: $copper-penny
     figure
       background-color: transparent
   #nav-bar a
     float: left
     font-size: 16px
-    color: green
+    color: $deep-koamaru
     text-align: center
     padding-top: 14px
     text-decoration: none
-    background-color: $copper-penny
+    background-color: white
+    border: 1px $deep-koamaru solid
+    width: 100%
+    padding: 5px
   #nav-bar ul .nav-link
     @include transition(display 0.9s ease-in-out)
     display: none
@@ -101,11 +103,16 @@ main
         background-color: darken($copper-penny, 20%)
 
   //Video//
-  #video
-    align-self: center
-    padding-top: 30px
-    padding-bottom:
+  #video-box
     transform: skewY(4deg)
+    padding-top: 56.25%
+    background-color: yellow
+    #video
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
     position: relative
   #image-group
     display: flex
@@ -127,9 +134,8 @@ footer
     margin: 0 auto
     width: 80%
     text-align: center
-
 //Small Screen
-@media screen and (max-width: 500px)
+@media screen and (max-width: 700px)
   header
     width: 100%
   #beer-box
@@ -141,8 +147,8 @@ footer
   main
     margin-top: -140px
   #video
-    width: 90%
-    height: auto
+    padding-left: 10%
+    padding-right: 10%
   #image-group
     display: flex
     flex-direction: column
@@ -151,14 +157,9 @@ footer
     img
       width: 90%
       height: auto
-  footer
-    position: fixed
-    bottom: 0
-    width: 100%
-    height: 60px
-    padding: 30px
+
 //Large Screen
-@media screen and (min-width: 501px)
+@media screen and (min-width: 701px)
   #beer-box
     height: 500px
     width: 100%
@@ -175,8 +176,8 @@ footer
     #submit
       width: 200px
   #video
-    width: 560px
-    height: 316px
+    padding-left: 40px
+    padding-right: 40px
   #image-group
     display: flex
     flex-direction: row
