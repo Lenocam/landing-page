@@ -33,11 +33,11 @@ body {
     height: 75px;
     width: auto;
     background: #ae6e71; }
-  #header #nav-bar {
+  #header #header-img:hover {
     overflow: hidden;
     font-family: Arial;
     background-color: #ae6e71; }
-    #header #nav-bar figure {
+    #header #header-img:hover figure {
       background-color: transparent; }
   #header #nav-bar a {
     float: left;
@@ -70,7 +70,6 @@ body {
 main {
   position: absolute;
   width: 100%;
-  margin-top: -60px;
   -webkit-transform: skewY(-4deg);
   -ms-transform: skewY(-4deg);
   transform: skewY(-4deg);
@@ -85,6 +84,10 @@ main {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
@@ -123,16 +126,14 @@ main {
       main #form #submit:hover {
         background-color: #754144; }
   main #video {
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
     padding-top: 30px;
     -webkit-transform: skewY(4deg);
     -ms-transform: skewY(4deg);
     transform: skewY(4deg);
-    text-align: center;
-    height: 400px;
-    width: 100%; }
-    main #video iframe {
-      width: 560px;
-      height: 100%; }
+    position: relative; }
   main #image-group {
     display: -webkit-box;
     display: -webkit-flex;
@@ -170,13 +171,18 @@ footer {
     text-align: center; }
 
 @media screen and (max-width: 500px) {
-  * {
-    width: auto; }
   header {
     width: 100%; }
   #beer-box {
     height: 300px;
-    background-size: cover; }
+    width: auto;
+    background-width: 350px;
+    background-height: auto; }
+  main {
+    margin-top: -140px; }
+  #video {
+    width: 90%;
+    height: auto; }
   #image-group {
     display: -webkit-box;
     display: -webkit-flex;
@@ -208,6 +214,8 @@ footer {
   #beer-box {
     height: 500px;
     width: 100%; }
+  main {
+    margin-top: -60px; }
   #form {
     display: -webkit-box;
     display: -webkit-flex;
@@ -228,6 +236,9 @@ footer {
       width: 55%; }
     #form #submit {
       width: 200px; }
+  #video {
+    width: 560px;
+    height: 316px; }
   #image-group {
     display: -webkit-box;
     display: -webkit-flex;

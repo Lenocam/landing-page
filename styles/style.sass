@@ -1,7 +1,4 @@
-// Colors y'all
-$copper-penny: #ae6e71
-$deep-koamaru: #31365b
-$yankees-blue: #1a1f46
+@import "colors"
 
 @mixin transition($args)
   -webkit-transition: $args
@@ -18,7 +15,7 @@ $yankees-blue: #1a1f46
   background-color: $yankees-blue
 body
   height: 100%
-//Nav and Header
+// //Nav and Header
 #header
   position: fixed
   display: flex
@@ -26,7 +23,6 @@ body
   justify-content: flex-end
   padding: 10px
   background-color: transparent
-  // border: 1px solid black
   width: 100%
   z-index: 1
   #header-img
@@ -35,7 +31,6 @@ body
     background: $copper-penny
   #header-img:hover
 
-  #nav-bar
     overflow: hidden
     font-family: Arial
     background-color: $copper-penny
@@ -55,7 +50,7 @@ body
     background-color: $copper-penny
   #nav-bar:hover ul .nav-link
     display: block
-//background image to parallax over
+
 #beer-box
   position: relative
   background:
@@ -68,13 +63,12 @@ body
 main
   position: absolute
   width: 100%
-  margin-top: -60px
-  //Slanted main content
   transform: skewY(-4deg)
   background-color: $yankees-blue
   padding-top: 75px
   display: flex
   flex-direction: column
+  justify-content: center
   flex: 1 0 auto
   #form
     text-align: center
@@ -105,15 +99,14 @@ main
         box-shadow: 0px 5px 0px 0px
       &:hover
         background-color: darken($copper-penny, 20%)
+
+  //Video//
   #video
+    align-self: center
     padding-top: 30px
+    padding-bottom:
     transform: skewY(4deg)
-    text-align: center
-    height: 400px
-    width: 100%
-    iframe
-      width: 560px
-      height: 100%
+    position: relative
   #image-group
     display: flex
     flex-direction: row
@@ -134,16 +127,22 @@ footer
     margin: 0 auto
     width: 80%
     text-align: center
+
 //Small Screen
 @media screen and (max-width: 500px)
-  *
-    width: auto
   header
     width: 100%
   #beer-box
     height: 300px
+    width: auto
     background:
-      size: cover
+      width: 350px
+      height: auto
+  main
+    margin-top: -140px
+  #video
+    width: 90%
+    height: auto
   #image-group
     display: flex
     flex-direction: column
@@ -158,19 +157,13 @@ footer
     width: 100%
     height: 60px
     padding: 30px
-
-
-
-
-
-
-
-
 //Large Screen
 @media screen and (min-width: 501px)
   #beer-box
     height: 500px
     width: 100%
+  main
+    margin-top: -60px
   #form
     display: flex
     flex-direction: column
@@ -181,6 +174,9 @@ footer
       width: 55%
     #submit
       width: 200px
+  #video
+    width: 560px
+    height: 316px
   #image-group
     display: flex
     flex-direction: row
