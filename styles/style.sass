@@ -1,22 +1,19 @@
 @import "colors"
 
-@mixin transition($args)
-  -webkit-transition: $args
-  -moz-transition: $args
-  -ms-transition: $args
-  -o-transition: $args
-  transition: $args
+
 *
   margin: 0
   padding: 0
   box-sizing: border-box
   font-family: Raleway, "Helvetica Neue", Helvetica, Helvetica, Arial, sans-sub-title
   color: white
-  background-color: $yankees-blue
+
 body
   height: 100%
   min-width: 320px
-// //Nav and Header
+  background-color: $yankees-blue
+
+//Nav and Header//
 #header
   position: fixed
   display: flex
@@ -26,32 +23,70 @@ body
   background-color: transparent
   width: 100%
   z-index: 1
+
+  //Hammer icon
   #header-img
     height: 75px
     width: auto
     background: $copper-penny
+    padding: 10px
+    border-radius: 5px
+
+
   #header-img:hover
     overflow: hidden
     font-family: Arial
+
     figure
       background-color: transparent
+
   #nav-bar a
     float: left
     font-size: 16px
-    color: $deep-koamaru
+    font-weight: bold
+    color: $copper-penny
     text-align: center
-    padding-top: 14px
+    // padding-top: 14px
     text-decoration: none
-    background-color: white
+    background-color: $deep-koamaru
     border: 1px $deep-koamaru solid
     width: 100%
-    padding: 5px
-  #nav-bar ul .nav-link
-    @include transition(display 0.9s ease-in-out)
+    padding-top: 14px
+    padding-bottom: 14px
+    padding-right: 5px
+    padding-left: 5px
+    border-radius: 5px 5px 5px 5px
+    border: 1px solid $copper-penny
+    margin-top: 2px
+
+  //Dropdown//
+  #nav-bar ul li //HIDE
     display: none
-    background-color: $copper-penny
-  #nav-bar:hover ul .nav-link
-    display: block
+
+  #nav-bar:hover > ul.drop-menu //SHOW
+    perspective: 1000px
+
+    li
+      display: block
+      opacity: 0
+
+      @for $i from 1 through 3
+        &:nth-child(#{$i})
+          animation:
+            name: menu1
+            duration: 500ms
+            delay: (250 * $i) - 500ms
+            timing-function: ease-in-out
+            fill-mode: forwards
+
+  @keyframes menu1
+    0%
+      opacity: 0
+      transform: rotateY(-90deg) translateY(30px)
+    100%
+      opacity: 1
+      transform: rotateY(0deg) translateY(0px)
+
 
 #beer-box
   position: relative
@@ -62,6 +97,7 @@ body
     repeat: no-repeat
     position: top center
     attachment: fixed
+
 main
   position: absolute
   width: 100%
@@ -72,11 +108,14 @@ main
   flex-direction: column
   justify-content: center
   flex: 1 0 auto
+
   #form
     text-align: center
     padding: 20px
+    padding-top: 100px
     transform: skewY(4deg)
     height: 600px
+
     #email
       margin-top: 20px
       margin-right: 10px
@@ -96,24 +135,28 @@ main
       margin: 20px
       color: white
       position: relative
+      text-align: center
+
       &:active
         transform: translate(0px, 5px)
         box-shadow: 0px 5px 0px 0px
+
       &:hover
-        background-color: darken($copper-penny, 20%)
+        background-color: darken($copper-penny, 10%)
 
   //Video//
   #video-box
     transform: skewY(4deg)
     padding-top: 56.25%
-    background-color: yellow
+    background-color: $yankees-blue
+
     #video
-      position: absolute
       top: 0
       left: 0
       width: 100%
       height: 100%
-    position: relative
+      position: absolute
+
   #image-group
     display: flex
     flex-direction: row
@@ -121,63 +164,81 @@ main
     transform: skewY(4deg)
     width: 100%
     padding-top: 200px
+
     img
       padding: 20px
       align-self: flex-start
+
 footer
   position: fixed
   bottom: 0
   width: 100%
   height: 60px
   padding: 30px
+
   div
     margin: 0 auto
     width: 80%
     text-align: center
+
 //Small Screen
 @media screen and (max-width: 700px)
+
   header
     width: 100%
+
   #beer-box
     height: 300px
     width: auto
     background:
       width: 350px
       height: auto
+
   main
     margin-top: -140px
+
   #video
     padding-left: 10%
     padding-right: 10%
+
   #image-group
     display: flex
     flex-direction: column
     flex-wrap: wrap
     justify-content: center
+
     img
       width: 90%
       height: auto
 
 //Large Screen
 @media screen and (min-width: 701px)
+
   #beer-box
     height: 500px
     width: 100%
+
   main
-    margin-top: -60px
+    margin-top: -100px
+
   #form
     display: flex
     flex-direction: column
     align-items: center
+
     h1
       font-size: 44px
+
     #email
       width: 55%
+
     #submit
       width: 200px
+
   #video
     padding-left: 40px
     padding-right: 40px
+
   #image-group
     display: flex
     flex-direction: row
