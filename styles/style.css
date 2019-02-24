@@ -122,7 +122,7 @@ body {
 
 #beer-box {
   position: relative;
-  background-image: url(/images/beerflight.jpg);
+  background-image: url("https://www.dropbox.com/s/je7tzhj6n3e5nw0/beerflight.jpg?raw=1");
   background-size: contain;
   background-height: 600px;
   background-repeat: no-repeat;
